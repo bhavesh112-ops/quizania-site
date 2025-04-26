@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (timeLeft === 60 && paymentMessage) {
           paymentMessage.style.display = 'block';
         }
-        if (timeLeft === 115 && startBtn) {
+        if (timeLeft === 60 && startBtn) {
           startBtn.style.display = 'block';
         }
 
