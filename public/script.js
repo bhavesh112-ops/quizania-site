@@ -200,34 +200,66 @@ document.addEventListener('DOMContentLoaded', function() {
     const progress = (currentQuestion / questions.length) * 100;
     document.getElementById('progressBar').style.width = `${progress}%`;
   }
-
-  function endQuiz() {
-    quizEl.innerHTML = `
+  
+function endQuiz() {
+	
+	quizEl.innerHTML = `
       <h2>🎉 Your quiz has been submitted!</h2>
-      <p>📅 Result will be announced on <strong>30th April 2025</strong>.</p>
+      <p>📅 Result will be announced on <strong>4 May 2025</strong>.</p>
       <p>Thank you for participating in <b>Quizania</b>!</p>
       <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
     `;
+  const name = document.getElementById('name').value;
+  const mobile = document.getElementById('mobile').value;
+  const city = document.getElementById('city').value;
+  const referral = document.getElementById('referral').value;
+  
+  // Gather score and time data
+  const score = score;
+  const avgTime = (totalTime / questions.length).toFixed(2);
+  
+  // Prepare the data to send to the backend
+  const requestData = {
+    name,
+    mobile,
+    city,
+    referral,
+    score,
+    avgTime,
+    answers
+  };
 
-    fetch('/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: document.getElementById('name').value,
-        mobile: document.getElementById('mobile').value,
-        city: document.getElementById('city').value,
-        referral: document.getElementById('referral').value,
-        score,
-        avgTime: (totalTime / questions.length).toFixed(2),
-        answers
-      })
-    }).then(res => res.json())
-      .then(data => {
-        if (!data.success) alert("Failed to submit!");
-      });
+  // Send data to the backend using fetch
+  fetch('/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestData)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert('Your quiz data has been successfully submitted!');
+    } else {
+      alert('Failed to submit quiz data. Please try again.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('There was an error submitting your data. Please try again.');
+  });
 
-    setTimeout(startConfetti, 200);
-  }
+  // Display the confetti and end quiz screen
+  setTimeout(startConfetti, 200);
+}
+
+
+
+
+
+
+
 
   function startConfetti() {
     const duration = 3 * 1000;
