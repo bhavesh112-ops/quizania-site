@@ -1,0 +1,23 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore environment or credential files
+credentials.json
+
+# Optional: Ignore lock file (if you don't want to keep it)
+package-lock.json
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+logs
+*.log
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+
+# Public, server.js, and other important files will NOT be ignored
+# so your website will run perfectly on deployment
