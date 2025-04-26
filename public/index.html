@@ -8,6 +8,8 @@
 
   <script src="qrcode.min.js"></script>
   <script src="confetti.browser.min.js"></script>
+  <script src="script.js"></script> 
+
   
   <style>
     body {
@@ -281,29 +283,7 @@
 
 <script src="script.js"></script> 
 
-<!-- ✅ Payment Success Timer -->
-<script>
-document.getElementById('terms').addEventListener('change', function() {
-  if (this.checked) {
-    // Show QR or payment animation immediately (optional)
-    document.getElementById('timerDisplay').innerText = "Payment Processing...";
 
-    // Simulate Payment after 1 minute
-    setTimeout(function() {
-      document.getElementById('payment-success').style.display = 'block';
-      document.getElementById('startBtn').style.display = 'block';
-      document.getElementById('timerDisplay').style.display = 'none';
-    }, 60000); // 60000 ms = 1 minute
-  }
-});
-</script>
-
-<script>
-// Loader hide after page load
-window.addEventListener('load', function() {
-  document.getElementById('loader').style.display = 'none';
-});
-</script>
 
 </body>
 </html>
