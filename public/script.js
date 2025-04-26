@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (termsCheckbox.checked) {
       qrCode.innerHTML = ""; // Clear previous QR
       new QRCode(qrCode, {
-        text: "upi://pay?pa=bhaveshprajapat436@ibl&pn=Quizania&am=5",
+        text: "upi://pay?pa=bhaveshprajapat436@ibl&pn=BhaveshPrajapata&am=5",
         width: 200,
         height: 200,
       });
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (timeLeft === 60 && paymentMessage) {
           paymentMessage.style.display = 'block';
         }
-        if (timeLeft === 115 && startBtn) {
+        if (timeLeft === 60 && startBtn) {
           startBtn.style.display = 'block';
         }
 
