@@ -21,3 +21,4 @@ logs
 
 # Public, server.js, and other important files will NOT be ignored
 # so your website will run perfectly on deployment
+credentials.json 
