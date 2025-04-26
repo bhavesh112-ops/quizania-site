@@ -78,13 +78,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
         timerDisplay.textContent = `Complete payment within ${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-        if (timeLeft === 60) {
+		
+		
+		if (timeLeft === 60 && paymentMessage) {
           paymentMessage.style.display = 'block';
         }
-        if (timeLeft === 115) {
+        if (timeLeft === 115 && startBtn) {
           startBtn.style.display = 'block';
         }
+
         if (timeLeft < 0) {
           clearInterval(interval);
           timerDisplay.textContent = "";
@@ -92,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         timeLeft--;
       }, 1000);
+
+
 
     } else {
       qrCode.style.display = 'none';
@@ -201,6 +205,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('progressBar').style.width = `${progress}%`;
   }
   
+  
+  
 function endQuiz() {
 	
 	quizEl.innerHTML = `
@@ -209,13 +215,14 @@ function endQuiz() {
       <p>Thank you for participating in <b>Quizania</b>!</p>
       <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
     `;
-  const name = document.getElementById('name').value;
+    const name = document.getElementById('name').value;
   const mobile = document.getElementById('mobile').value;
   const city = document.getElementById('city').value;
   const referral = document.getElementById('referral').value;
-  
   // Gather score and time data
-  const score = score;
+  // Assuming `score` is already defined elsewhere in the program, probably it is in the scope of the whole file
+  // Then just assign the existing value to `score`
+  console.log("Final Score:", score); // Now this is valid.
   const avgTime = (totalTime / questions.length).toFixed(2);
   
   // Prepare the data to send to the backend
@@ -229,8 +236,11 @@ function endQuiz() {
     answers
   };
 
+
   // Send data to the backend using fetch
-  fetch('/submit', {
+  
+
+  fetch('https://quizania-site.onrender.com/submit', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -253,10 +263,6 @@ function endQuiz() {
   // Display the confetti and end quiz screen
   setTimeout(startConfetti, 200);
 }
-
-
-
-
 
 
 

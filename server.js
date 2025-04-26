@@ -7,6 +7,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+require('dotenv').config();
 // Security middlewares
 app.use(helmet());
 
