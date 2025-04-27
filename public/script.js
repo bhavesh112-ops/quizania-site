@@ -123,18 +123,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+
+	
   // Download QR Button Event
+
+
   downloadBtn.addEventListener('click', function() {
-    const canvas = qrCode.querySelector('canvas');
-    if (canvas) {
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'payment_qr.png';
-      link.click();
-    } else {
-      alert('QR code not generated yet!');
-    }
-  });
+  const canvas = qrCode.querySelector('canvas');
+  if (canvas) {
+    const originalWidth = canvas.width;
+    const originalHeight = canvas.height;
+    const padding = 40; // <-- White space size
+
+    const newCanvas = document.createElement('canvas');
+    const ctx = newCanvas.getContext('2d');
+
+    newCanvas.width = originalWidth + padding * 2;
+    newCanvas.height = originalHeight + padding * 2;
+
+    // Fill background white
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, newCanvas.width, newCanvas.height);
+
+    // Draw old QR onto new canvas with padding
+    ctx.drawImage(canvas, padding, padding);
+
+    // Download new canvas
+    const link = document.createElement('a');
+    link.href = newCanvas.toDataURL('image/jpeg');
+    link.download = 'payment_qr.jpg';
+    link.click();
+  } else {
+    alert('QR code not generated yet!');
+  }
+});
+
+ 
 
   // Start Button Event
   startBtn.addEventListener('click', () => {
@@ -167,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function loadQuestion() {
+	  clearInterval(quizInterval); 
     if (currentQuestion >= questions.length) return endQuiz();
 
     updateProgressBar();
@@ -184,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.className = "option";
         btn.textContent = opt;
         btn.onclick = () => {
+		clearInterval(quizInterval); 
           answers.push(i);
           if (i === q.correct) score++;
           clearInterval(quizInterval);
