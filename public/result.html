@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizania - Quiz Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #eaf6ff, #ffffff);
+      color: #111;
+    }
+    header, footer {
+      background: #0047AB;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a, footer a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      transition: color 0.3s;
+    }
+    header a:hover, footer a:hover {
+      color: #ffd700;
+    }
+    .container {
+      max-width: 550px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+    /* Main Content */
+    .main-content {
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    /* Quiz Card */
+    .quiz-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 450px;
+      width: 200%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .quiz-image {
+      width: 100%;
+      height: 50%;
+      display: block;
+    }
+    /* Quiz Details */
+    .quiz-details {
+      padding: 20px;
+    }
+    .quiz-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .quiz-date {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    .green {
+      color: green;
+    }
+    .red {
+      color: red;
+    }
+    .quiz-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .meta-item {
+      text-align: center;
+      font-size: 14px;
+    }
+	.result {
+      text-align: center;
+      font-size: 14px;
+    }
+    .play-btn {
+      background-color: white;
+      border: 1px solid #d00;
+      color: #d00;
+      padding: 15px 60px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .play-btn:hover {
+      background-color: #d00;
+      color: white;
+      transition: 0.3s;
+    }
+    /* Certificate and T&C */
+    .certificate {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .certificate img {
+      vertical-align: middle;
+    }
+    .view-tc {
+      margin-left: auto;
+      font-size: 12px;
+      color: black;
+      text-decoration: underline;
+    }
+    .by-text {
+      font-size: 12px;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      header, footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      header nav {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo" class="logo">
+    <a href="index.html"><h2><strong>Quizania</strong></h2></a>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Result</a>
+  </nav>
+</header>
+
+<!-- Blue Line -->
+<div style="height: 8px; background: linear-gradient(to right, #00c6ff, #0072ff); border-radius: 10px;"></div>
+
+<!-- Main Content -->
+<main class="main-content">
+  <div class="quiz-card">
+    <img src="quizresult.png" alt="Quiz Image" class="quiz-image">
+
+    <div class="quiz-details">
+      <h2 class="quiz-title">Quizania Quiz for Earn money</h2>
+
+      <div class="quiz-date">
+        <span><strong>From :</strong> <span class="green">Apr 27, 2025</span></span>
+        <span><strong>To :</strong> <span class="red">May 4, 2025</span></span>
+      </div>
+
+      <div class="quiz-meta">
+        <div class="meta-item">
+          <strong>10</strong><br>Questions
+        </div>
+        <div class="meta-item">
+          <strong>200</strong>
+		  <div>sec Duration</div>
+        </div><br></br>
+        <div class="result">
+          <button class="play-btn">Result</button>
+        </div>
+      </div>
+
+      <div class="certificate">
+        <img src="https://img.icons8.com/ios/20/000000/certificate.png" alt="Certificate">
+        Lederboard
+        <a href="term.html" class="view-tc">View T&C</a>
+      </div>
+
+      <p class="by-text">By: Quizania</p>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <nav>
+    <a href="term.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+  © 2025 Quizania. All rights reserved.
+</footer>
+
+</body>
+</html>
