@@ -124,6 +124,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
+// Show Modal
+document.getElementById("openPopup").onclick = function () {
+  document.getElementById("popupModal").style.display = "block";
+};
+
+// Close Modal
+document.querySelector(".close").onclick = function () {
+  document.getElementById("popupModal").style.display = "none";
+};
+
+// Close if user clicks outside the modal
+window.onclick = function (event) {
+  if (event.target === document.getElementById("popupModal")) {
+    document.getElementById("popupModal").style.display = "none";
+  }
+};
+
+
 	
   // Download QR Button Event
 
