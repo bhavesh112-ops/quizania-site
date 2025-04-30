@@ -131,6 +131,44 @@
       align-items: center;
       z-index: 9999;
     }
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: red;
+}
+
     .spinner {
       border: 8px solid #f3f3f3;
       border-top: 8px solid #3498db;
@@ -232,6 +270,32 @@
 </header>
 
 <div style="height: 8px; background: linear-gradient(to right, #00c6ff, #0072ff); border-radius: 10px;"></div>
+
+<div style="height: 8px; background: linear-gradient(to right, #00c6ff, #0072ff); border-radius: 10px;"></div>
+<!-- Trigger Link -->
+<a href="#" id="openPopup">📘 Rules for Quiz & Earnings</a>
+
+<!-- Popup Modal -->
+<div id="popupModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Quiz Rules & Format</h2>
+    <p><strong>Duration:</strong> 20 Seconds per question</p>
+    <p><strong>Total Quizzes:</strong> 10 (All MCQ format)</p>
+    <p><strong>Marking:</strong> 1 point for correct answer</p>
+    <p><strong>Negative Marking:</strong> 0 for each wrong answer</p>
+    <p><strong>Score & Rank:</strong> Will be shown after result</p>
+    <p><strong>Earn:</strong> Top 100 scorers win real rewards!</p>
+    <p><strong>Rank 1</strong> ₹ 1000</p>
+    <p><strong>Rank 2</strong> ₹ 700</p>
+    <p><strong>Rank 3</strong> ₹ 500</p>
+    <p><strong>Rank 4 - 10 </strong> ₹ 100</p>
+    <p><strong>Rank 11 - 50 </strong> ₹ 10</p>
+    <p><strong>Rank 50 - 100 </strong> ₹ 5</p><br></br>
+
+  </div>
+</div>
+
 
 <div class="container">
   <div id="registerForm">
