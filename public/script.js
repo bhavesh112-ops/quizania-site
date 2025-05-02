@@ -5,17 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   
-  document.getElementById('terms').addEventListener('change', function() {
-  if (this.checked) {
-    // Show QR or payment animation immediately (optional)
-    document.getElementById('timerDisplay').innerText = "Payment Processing...";
+document.getElementById('terms').addEventListener('change', function() {
+  const upiImage = document.getElementById('upiImage');
 
-    // Simulate Payment after 1 minute
+  if (this.checked) {
+    document.getElementById('timerDisplay').innerText = "Payment Processing...";
+    upiImage.style.display = 'block'; // 👈 Show the image
+
     setTimeout(function() {
       document.getElementById('payment-success').style.display = 'block';
       document.getElementById('startBtn').style.display = 'block';
       document.getElementById('timerDisplay').style.display = 'none';
-    }, 60000); // 60000 ms = 1 minute
+    }, 60000);
+  } else {
+    upiImage.style.display = 'none'; // 👈 Hide the image if unchecked
   }
 });
 
@@ -99,7 +102,7 @@ let downloadBtn = document.getElementById('download-btn');
 		if (timeLeft === 60 && paymentMessage) {
           paymentMessage.style.display = 'block';
         }
-        if (timeLeft === 60 && startBtn) {
+        if (timeLeft === 115 && startBtn) {
           startBtn.style.display = 'block';
         }
 
@@ -228,14 +231,13 @@ downloadBtn.addEventListener('click', function () {
         btn.className = "option";
         btn.textContent = opt;
         btn.onclick = () => {
-		clearInterval(quizInterval); 
-          answers.push(i);
-          if (i === q.correct) score++;
-          clearInterval(quizInterval);
-          totalTime += 20 - quizTime;
-          currentQuestion++;
-          loadQuestion();
-        };
+  clearInterval(quizInterval); // ✅ clear timer ONCE
+  answers.push(i);
+  if (i === q.correct) score++;
+  totalTime += 20 - quizTime;
+  currentQuestion++;
+  loadQuestion();
+};
         optionsBox.appendChild(btn);
       });
 
@@ -259,7 +261,12 @@ downloadBtn.addEventListener('click', function () {
 
     }, 300);
   }
-
+function clearQuizTimer() {
+  if (quizInterval) {
+    clearInterval(quizInterval);
+    quizInterval = null;
+  }
+}
   function updateProgressBar() {
     const progress = (currentQuestion / questions.length) * 100;
     document.getElementById('progressBar').style.width = `${progress}%`;
@@ -351,4 +358,5 @@ function endQuiz() {
       }));
     }, 250);
   }
+
 }); // End of DOMContentLoaded
