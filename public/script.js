@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const optionsBox = document.getElementById('optionsBox');
   const timerEl = document.getElementById('timer');
   const paymentInstruction = document.getElementById('paymentInstruction');
-  const downloadBtn = document.getElementById('download-btn');
+let downloadBtn = document.getElementById('download-btn');
+
 
   // Variables
   let currentQuestion = 0;
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (timeLeft === 60 && paymentMessage) {
           paymentMessage.style.display = 'block';
         }
-        if (timeLeft === 60 && startBtn) {
+        if (timeLeft === 115 && startBtn) {
           startBtn.style.display = 'block';
         }
 
@@ -162,12 +163,8 @@ downloadBtn.addEventListener('click', function () {
 
     newCanvas.width = originalWidth + padding * 2;
     newCanvas.height = originalHeight + padding * 2;
-
-    // Fill background white
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, newCanvas.width, newCanvas.height);
-
-    // Draw old QR onto new canvas with padding
     ctx.drawImage(canvas, padding, padding);
 
     const link = document.createElement('a');
@@ -178,6 +175,7 @@ downloadBtn.addEventListener('click', function () {
     alert('QR code not generated yet!');
   }
 });
+
 
  
 
@@ -273,7 +271,8 @@ function endQuiz() {
 	
 	quizEl.innerHTML = `
       <h2>🎉 Your quiz has been submitted!</h2>
-      <p>📅 Result will be announced on <strong>4 May 2025</strong>.</p>
+      <p>📅 Result will be announced on <strong>8 May 2025</strong>.</p>
+      <p>If you win any prize are team will shortly contact you</p>
       <p>Thank you for participating in <b>Quizania</b>!</p>
       <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
     `;
