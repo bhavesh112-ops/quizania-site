@@ -351,5 +351,4 @@ function endQuiz() {
       }));
     }, 250);
   }
-
 }); // End of DOMContentLoaded
