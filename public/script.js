@@ -145,14 +145,18 @@ window.onclick = function (event) {
 	
   // Download QR Button Event
 
+// === Download QR ===
+const freshBtn = downloadBtn.cloneNode(true);
+downloadBtn.parentNode.replaceChild(freshBtn, downloadBtn);
+downloadBtn = freshBtn;
 
-  downloadBtn.addEventListener('click', function() {
+
+downloadBtn.addEventListener('click', function () {
   const canvas = qrCode.querySelector('canvas');
   if (canvas) {
     const originalWidth = canvas.width;
     const originalHeight = canvas.height;
-    const padding = 40; // <-- White space size
-
+    const padding = 40;
     const newCanvas = document.createElement('canvas');
     const ctx = newCanvas.getContext('2d');
 
@@ -166,7 +170,6 @@ window.onclick = function (event) {
     // Draw old QR onto new canvas with padding
     ctx.drawImage(canvas, padding, padding);
 
-    // Download new canvas
     const link = document.createElement('a');
     link.href = newCanvas.toDataURL('image/jpeg');
     link.download = 'payment_qr.jpg';
