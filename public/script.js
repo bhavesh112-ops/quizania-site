@@ -99,7 +99,7 @@ let downloadBtn = document.getElementById('download-btn');
 		if (timeLeft === 60 && paymentMessage) {
           paymentMessage.style.display = 'block';
         }
-        if (timeLeft === 115 && startBtn) {
+        if (timeLeft === 60 && startBtn) {
           startBtn.style.display = 'block';
         }
 
@@ -271,8 +271,8 @@ function endQuiz() {
 	
 	quizEl.innerHTML = `
       <h2>🎉 Your quiz has been submitted!</h2>
-      <p>📅 Result will be announced on <strong>8 May 2025</strong>.</p>
-      <p>If you win any prize are team will shortly contact you</p>
+      <p>📅 Result will be announced on <strong>4 May 2025</strong>.</p>
+	  <p>If you win any prize are team will shortly contact you</p>
       <p>Thank you for participating in <b>Quizania</b>!</p>
       <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
     `;
