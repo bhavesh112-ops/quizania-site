@@ -277,12 +277,13 @@ function clearQuizTimer() {
 function endQuiz() {
 	
 	quizEl.innerHTML = `
-      <h2>🎉 Your quiz has been submitted!</h2>
+     <h2 style="text-align: center;">🎉 Your quiz has been submitted!</h2>
       <p>📅 Result will be announced on <strong>8 May 2025</strong>.</p>
-	  <p>If you win any prize are team will shortly contact you</p>
-<p>If you are unsatisfied play one more time to increase your win chance</p>
-<h2 style="text-align: center;"><a href="index.html"></a><b>Play</b></h2>
-      <p>Thank you for participating in <b>Quizania</b>!</p>
+	  <p>🎁 If you win any prize are team will shortly contact you</p>
+<p>😔 If you are unsatisfied play one more time</p>
+<p>😃 Click Play Button to start and increase your win chance 😃</p>
+<h2 style="text-align: center; border-inline-style: solid;"><a href="index.html">Play</a></h2>
+      <p style="text-align: center;">Thank you for participating in <b>Quizania</b>!</p>
       <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></canvas>
     `;
     const name = document.getElementById('name').value;
