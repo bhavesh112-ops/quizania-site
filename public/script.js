@@ -278,7 +278,7 @@ function endQuiz() {
 	
 	quizEl.innerHTML = `
      <h2 style="text-align: center;">🎉 Your quiz has been submitted!</h2>
-      <p>📅 Result will be announced on <strong>8 May 2025</strong>.</p>
+      <p>📅 Result will be announced on <strong>11 May 2025</strong>.</p>
 	  <p>🎁 If you win any prize are team will shortly contact you</p>
 <p>😔 If you are unsatisfied play one more time</p>
 <p>😃 Click Play Button to start and increase your win chance 😃</p>
