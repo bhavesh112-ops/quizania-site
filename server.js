@@ -9,7 +9,22 @@ const PORT = process.env.PORT || 3000;
 
 require('dotenv').config();
 // Security middlewares
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "https://*.profitablegatecpm.com",  // your ad script domain
+        "https://*.adsterra.com"           // add other networks if needed
+      ],
+      connectSrc: ["'self'"],
+      imgSrc: ["'self'", "data:"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+    }
+  }
+}));
+
 
 // CORS
 app.use(cors({
