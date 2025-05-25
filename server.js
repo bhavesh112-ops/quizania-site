@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const { google } = require('googleapis');
-const helmet = require('helmet');
+
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,29 +10,6 @@ const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 // Security middlewares
 
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [
-          "'self'",
-          "'unsafe-inline'", // Some ad scripts need inline JS
-          "https://*.profitablegatecpm.com",
-          "https://*.adsterra.com",
-        ],
-        styleSrc: [
-          "'self'",
-          "'unsafe-inline'", // Required for Google Fonts
-          "https://fonts.googleapis.com"
-        ],
-        fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "https://*"], // Allow ad images
-        connectSrc: ["'self'", "https://*"], // Allow ad network APIs
-      },
-    },
-  })
-);
 
 
 
